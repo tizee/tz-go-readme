@@ -1,0 +1,6 @@
+# history
+.history
+# osx
+.DS_Store
+# env
+.env
