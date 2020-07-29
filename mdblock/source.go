@@ -5,15 +5,14 @@ import (
 	"os"
 )
 
-const dataFile = "./data.json"
 
 type DataURL struct {
     Type string  `json:"type"`
     URL string `json:"url"`
 }
 
-func GetData() ([]*DataURL,error)   {
-    file, err := os.Open(dataFile)
+func GetData(filepath string) ([]*DataURL,error)   {
+    file, err := os.Open(filepath)
     if err != nil {
         return nil, err
     }

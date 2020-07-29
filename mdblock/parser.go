@@ -29,8 +29,8 @@ type Result struct {
 }
 
 // Run: entry point
-func Run(filename string)  {
-    data, err := GetData()
+func Run(filename string,datafile string)  {
+    data, err := GetData(datafile)
     if err != nil {
         log.Fatalln("Get data.json Error:",err)
     }

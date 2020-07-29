@@ -13,7 +13,7 @@ func TestData(t *testing.T) {
         Type: "rss",
         URL: "https://tizee.github.io/rss.xml",
     })
-    if got,_ := GetData(); got==nil || len(got) != 2 {
-        t.Errorf("invalid data.json")
+    if got,err := GetData("../data.json"); got==nil {
+        t.Errorf("invalid data.json %s",err)
     }
 }
