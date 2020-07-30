@@ -1,4 +1,4 @@
-package client
+package util
 
 import (
 	"net/url"
@@ -21,23 +21,17 @@ func JoinBaseURL(BaseURL string, URL string) string  {
 func JoinParams(URL string, Params url.Values) (string,error)  {
     urlObj,err := url.Parse(URL)
     if err != nil {
-        return "", err
+        return URL, err
     }
 	res := urlObj.String()
 	n := len(Params)
     if n > 0{
-		count := 0
-        res += "?"
-        for key, vals := range Params {
-            for _, val := range vals {
-				if count < n-1{
-				res += key + "=" + val + "&"
-				}else{
-				res += key + "=" + val
-				}
-				count += 1
-            }
-        }
+		query := Params.Encode(); 
+		if strings.HasSuffix(res,"?") {
+			res += query
+		}else {
+			res += "?"+ query
+		}
     }
     return res, nil
 }
