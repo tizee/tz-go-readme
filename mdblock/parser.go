@@ -19,7 +19,7 @@ func Register(parserType string, parser Parser)  {
 
 type Parser interface{
 // transform input string
-Parse(url string) ([]byte,error) 
+Parse(source string) ([]byte,error) 
 }
 
 // Parse result
@@ -46,33 +46,34 @@ func Run(filename string,datafile string)  {
             parser = parsers["default"]
         }
 
-        go func(parser Parser,Type string, url string) {
-            ParserRunner(parser,Type,url,results)
+        go func(parser Parser,Type string, src string) {
+            ParserRunner(parser,Type,src,results)
             waitGroups.Done()
-        }(parser,entry.Type,entry.URL)
+        }(parser,entry.Type,entry.Src)
     }
 
     go func() {
         waitGroups.Wait()
         close(results)
-    }()
-    var lines = make([]*Result,0)
     // use slice instead of channel
+	}()
+    var lines = make([]*Result,0)
     for res := range results {
         lines = append(lines, &Result{
             Type: res.Type,
             Content: res.Content,
         }) 
     }
+
     WriteToMDFile(lines,filename)
 }
 
 /*
 ParserRunner: Run Parser
 */
-func ParserRunner(p Parser,Type string, url string ,results chan<- *Result)  {
+func ParserRunner(p Parser,Type string, src string ,results chan<- *Result)  {
     log.Printf("Parse %s now \n",Type)
-    res, err := p.Parse(url)
+    res, err := p.Parse(src)
     if err != nil {
         log.Fatalln(err)
     }

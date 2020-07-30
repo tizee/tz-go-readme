@@ -5,19 +5,19 @@ import (
 	"os"
 )
 
-
-type DataURL struct {
+type Source struct {
     Type string  `json:"type"`
-    URL string `json:"url"`
+    Src string `json:"source"`
 }
 
-func GetData(filepath string) ([]*DataURL,error)   {
+// Retrieve data from json file
+func GetData(filepath string) ([]*Source,error)   {
     file, err := os.Open(filepath)
     if err != nil {
         return nil, err
     }
     defer file.Close()
-    var data []*DataURL
+    var data []*Source
     err = json.NewDecoder(file).Decode(&data)
 
     return data, err

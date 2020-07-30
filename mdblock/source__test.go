@@ -5,15 +5,13 @@ import (
 )
 
 func TestData(t *testing.T) {
-    var want []*DataURL
-    want = append(want, &DataURL{
-        Type: "wakatime",
-        URL: "https://wakatime.com/api/v1/users/current/stats/last_7_days",
-    },&DataURL{
+    want := []*Source{{Type: "wakatime",
+        Src: "https://wakatime.com/api/v1/users/current/stats/last_7_days",
+    },{
         Type: "rss",
-        URL: "https://tizee.github.io/rss.xml",
-    })
+        Src: "https://tizee.github.io/rss.xml",
+    }}
     if got,err := GetData("../data.json"); got==nil {
-        t.Errorf("invalid data.json %s",err)
+        t.Errorf("GetData want %d but got %d, err: %s",len(want),len(got),err)
     }
 }

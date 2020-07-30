@@ -25,7 +25,10 @@ func WriteToMDFile(results []*Result, filename string) {
     content, err := ioutil.ReadFile(filename)
     if err != nil {
         log.Fatalln("Invalid markdown file")
-    }
+	}
+	if len(results) == 0 {
+        log.Println("empty results")
+	} 
     // replace slots with newer content 
     for _,lines := range results {
         start,end:= Tag(lines.Type+"-start"), Tag(lines.Type+"-end")
