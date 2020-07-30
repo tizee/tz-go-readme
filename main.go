@@ -3,14 +3,13 @@ package main
 import (
 	"log"
 	"os"
+
 	"path"
 	"tz-go-readme/mdblock"
 	_ "tz-go-readme/parsers"
 
 	"github.com/joho/godotenv"
 )
-
-const dataFile = "../data.json"
 
 // load .env file
 func init() {
@@ -29,5 +28,5 @@ func main() {
 	}
 	// invoke from root path
 	dataFile := path.Join(cwd,"./data.json")
-	mdblock.Run("README.md",dataFile)
+	mdblock.Run(filename,dataFile)
 }

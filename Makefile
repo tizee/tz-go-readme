@@ -3,7 +3,7 @@
 
 # go test
 test:
-	go test ./client ./mdblock
+	go test ./client/util ./mdblock
 
 lint:
 	golangci-lint run

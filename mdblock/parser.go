@@ -32,7 +32,7 @@ type Result struct {
 func Run(filename string,datafile string)  {
     data, err := GetData(datafile)
     if err != nil {
-        log.Fatalln("Get data.json Error:",err)
+        log.Fatalf("Get %s Error: %s\n",datafile,err)
     }
     results := make(chan *Result)
 
@@ -55,9 +55,9 @@ func Run(filename string,datafile string)  {
     go func() {
         waitGroups.Wait()
         close(results)
-    // use slice instead of channel
 	}()
-    var lines = make([]*Result,0)
+    // use slice instead of channel
+	var lines = make([]*Result,0)
     for res := range results {
         lines = append(lines, &Result{
             Type: res.Type,
@@ -65,6 +65,7 @@ func Run(filename string,datafile string)  {
         }) 
     }
 
+	// synchronous operation
     WriteToMDFile(lines,filename)
 }
 
