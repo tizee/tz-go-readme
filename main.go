@@ -22,6 +22,7 @@ func main() {
 	if filename == "" {
 		filename = "README.md"
 	}
+	log.Printf("target file: %s",filename)
 	cwd,err := os.Getwd()
 	if err != nil {
 		log.Fatalln(err)

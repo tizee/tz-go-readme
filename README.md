@@ -20,14 +20,8 @@ Parse(source string) ([]byte,error)
 
 ### TBD
 - [x] parser for wakatime stat
-- [ ] parser for blog rss
+- [x] parser for blog rss
 - [ ] Github workflow
 
 ### Why golang?
 I'm learning Golang these days(I wonder that it may be easier to implement using Python or JavaScript). 
-
-<!-- rss-start -->
-<!-- rss-end -->
-
-<!-- wakatime-start -->
-<!-- wakatime-end -->

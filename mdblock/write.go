@@ -34,17 +34,17 @@ func WriteToMDFile(results []*Result, filename string) {
         start,end:= Tag(lines.Type+"-start"), Tag(lines.Type+"-end")
 		startIndx,endIndex := bytes.Index(content,start),bytes.Index(content,end)
 		beforeStart,afterEnd := content[:startIndx+len(start)] ,content[endIndex:] 
-		var between string 
-		if startIndx+len(start) < endIndex-1{
-			between = string(content[startIndx+len(start):endIndex-1])
-		}
+		// var between string 
+		// if startIndx+len(start) < endIndex-1{
+		// 	between = string(content[startIndx+len(start):endIndex-1])
+		// }
         updatedContent := bytes.NewBuffer(nil)
         // insert after <!-- xxx-start -->
         updatedContent.Write(beforeStart)
 		updatedContent.WriteString("\n")
-		if between != ""{
-			updatedContent.WriteString(between+"\n")
-		}
+		// if between != ""{
+		// 	updatedContent.WriteString(between+"\n")
+		// }
         updatedContent.Write(lines.Content)
         updatedContent.WriteString("\n")
         // insert before <!-- xxx-end -->
