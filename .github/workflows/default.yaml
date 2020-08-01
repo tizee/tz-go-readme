@@ -3,9 +3,12 @@ name: Update Readme
 on: 
   push:
     - master
+  pull_request:
+    branches:
+      - master
   schedule:
-  # every day
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *' # every day
+
 jobs:
   update_file:
     name: update file
