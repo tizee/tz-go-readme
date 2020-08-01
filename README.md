@@ -9,7 +9,7 @@ Inspired by [tw93/tw93](https://github.com/tw93/tw93) and [matchai/waka-box](htt
 ## Parser
 
 A parser can parse resourse pointed by `source`. `source` could be local file path, or a remote API endpoint.
-I also implement an axios-like http client for retrieving from remote RESTful APIs. For the sake of simplicity, I only implement GET and POST. Why build a wheel? Well, I'm learning Golang by building wheels.
+I also implement an axios-like http client for retrieving data from remote RESTful APIs. For the sake of simplicity, I only implement GET and POST. 
 
 ```
 type Parser interface{
@@ -22,6 +22,3 @@ Parse(source string) ([]byte,error)
 - [x] parser for wakatime stat
 - [x] parser for blog rss
 - [ ] Github workflow
-
-### Why golang?
-I'm learning Golang these days(I wonder that it may be easier to implement using Python or JavaScript). 
