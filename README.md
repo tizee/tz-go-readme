@@ -1,5 +1,5 @@
 <div align="center">
-<h2>tz-gohub-readme<h2>
+<h2>tz-go-readme<h2>
 <p>Update github readme with parsers</p>
 </div>
 
