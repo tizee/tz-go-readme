@@ -13,12 +13,14 @@ jobs:
     env:
       # current repo
       GH_TOKEN: ${{ github.token }}
+      WAKATIME_APIKEY: ${{ secrets.WAKATIME_APIKEY}}
       MDFILE: example.md
+
     steps:
       - name: Setup go
         uses: actions/setup-go@v2
-          with: 
-            go-version: '^1.14.6'
+        with: 
+          go-version: '^1.14.6'
       - name: checkout
         uses: actions/checkout@v2
       - name : run Go
