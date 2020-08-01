@@ -36,5 +36,5 @@ jobs:
           git config --global user.name "tz-readme-bot"
           git pull
           git add -A
-          git commit -m "Updated readme" || exit 0
+          git commit -m ":dart: update readme" || exit 0
           git push
