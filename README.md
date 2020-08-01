@@ -21,4 +21,4 @@ Parse(source string) ([]byte,error)
 ### TBD
 - [x] parser for wakatime stat
 - [x] parser for blog rss
-- [ ] Github workflow
+- [x] Github workflow
