@@ -28,7 +28,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name : run Go
-        run: go run ./main
+        run: go run ./main.go
       - name: update repo
         run: |-
           git diff
