@@ -1,6 +1,5 @@
-# workflow name
-name: update-readme
-# trigger
+name: Update Readme
+
 on: 
   push:
     - master
@@ -19,7 +18,7 @@ jobs:
       - name: Setup go
         uses: actions/setup-go@v2
           with: 
-          go-version: '^1.14.6'
+            go-version: '^1.14.6'
       - name: checkout
         uses: actions/checkout@v2
       - name : run Go
