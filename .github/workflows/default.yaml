@@ -8,7 +8,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 0 * * *' # every day
+    - cron: '0 0 * * 0' # every sunday
 
 jobs:
   update_file:
